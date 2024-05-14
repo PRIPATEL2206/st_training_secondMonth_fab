@@ -38,7 +38,7 @@
                                 <c:forEach items="${appointments}" var="appointment">
                                     <tr>
                                         <th scope="row">${appointment.id}</th>
-                                        <td>${appointment.student_Id}</td>
+                                        <td>${appointment.studentId}</td>
                                         <td>${appointment.startTime}</td>
                                         <td>${appointment.endTime}</td>
                                         <td>${appointment.status}</td>

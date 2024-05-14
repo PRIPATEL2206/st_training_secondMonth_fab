@@ -18,28 +18,28 @@
 
                 <form action="/student/bookApointment/" method="post">
                     <div class="mb-3" hidden>
-                        <input type="number" name="consultant_Id" class="form-control" value="${consoltentId}"
+                        <input type="number" name="consultantId" class="form-control" value="${consoltentId}"
                             id="inputApointmentId" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3" hidden>
-                        <input type="number" name="student_Id" class="form-control" value="${studentId}"
+                        <input type="number" name="studentId" class="form-control" value="${studentId}"
                             id="inputApointmentId" aria-describedby="emailHelp">
                     </div>
 
                     <div class="mb-3">
                         <label for="inputStartTime" class="form-label">Start Time</label>
                         <input type="datetime-local" name="startTime" class="form-control" id="inputStartTime"
-                            aria-describedby="emailHelp">
+                            aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                         <label for="inputEndTime" class="form-label">End Time</label>
                         <input type="datetime-local" name="endTime" class="form-control" id="inputEndTime"
-                            aria-describedby="emailHelp">
+                            aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">discription</label>
-                        <input type="datetime-local" name="description" class="form-control" id="description"
-                            aria-describedby="emailHelp">
+                        <input type="text" name="description" class="form-control" id="description"
+                            aria-describedby="emailHelp" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>

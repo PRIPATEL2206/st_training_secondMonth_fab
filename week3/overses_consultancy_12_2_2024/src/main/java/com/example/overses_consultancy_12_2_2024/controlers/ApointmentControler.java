@@ -1,3 +1,10 @@
+/*
+ * this is controler for makeing apointment with cunsoltent by student
+ * 
+ * careted by : prince patel
+ * 
+ */
+
 package com.example.overses_consultancy_12_2_2024.controlers;
 
 import java.security.Principal;
@@ -25,28 +32,47 @@ public class ApointmentControler {
     @Autowired
     ApointmentRepo apointmentRepo;
 
+    // this is route for display booking apointment page
     @GetMapping("/student/bookApointment/{id}")
     public String bookApoinmentPage(@PathVariable("id") Long consoltentId, Principal principal, Model model) {
-        Long studentId = (userRepository.findByUsername(principal.getName()).orElseThrow(null)).getId();
-        model.addAttribute("studentId", studentId);
-        model.addAttribute("consoltentId", consoltentId);
-        return "bookApointment";
+
+        try {
+
+            Long studentId = (userRepository.findByUsername(principal.getName()).orElseThrow(null)).getId();
+            model.addAttribute("studentId", studentId);
+            model.addAttribute("consoltentId", consoltentId);
+            return "bookApointment";
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return "redirect:/";
+        }
+
     }
 
+    // this is post route that will book apintment
     @PostMapping("/student/bookApointment/")
     public String bookApointment(HttpServletRequest request) {
-        Appointment appointment = new Appointment();
-        appointment.setDescription("ok");
-        appointment.setStatus("pending");
-        appointment.setStartTime(request.getParameter("startTime"));
-        appointment.setEndTime(request.getParameter("endTime"));
-        appointment.setDescription(request.getParameter("description"));
-        appointment.setConsultant_Id(Long.parseLong(request.getParameter("consultant_Id")));
-        appointment.setStudent_Id(Long.parseLong(request.getParameter("student_Id")));
-        appointment.setCreated_on(appointment.getStartTime());
-        appointment.setModified_on(appointment.getStartTime());
-        apointmentRepo.save(appointment);
-        return "redirect:/";
+        try {
+
+            Appointment appointment = new Appointment();
+            appointment.setDescription("ok");
+            appointment.setStatus("pending");
+            appointment.setStartTime(request.getParameter("startTime"));
+            appointment.setEndTime(request.getParameter("endTime"));
+            appointment.setDescription(request.getParameter("description"));
+            appointment.setConsultantId(Long.parseLong(request.getParameter("consultantId")));
+            appointment.setStudentId(Long.parseLong(request.getParameter("studentId")));
+            appointment.setCreatedOn(appointment.getStartTime());
+            appointment.setModifiedOn(appointment.getStartTime());
+            apointmentRepo.save(appointment);
+            return "redirect:/";
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return "redirect:/";
+
+        }
     }
 
 }

@@ -17,12 +17,12 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    String created_on;
-    String modified_on;
+    String createdOn;
+    String modifiedOn;
     String description;
     String status;
     String startTime;
     String endTime;
-    Long consultant_Id;
-    Long student_Id;
+    Long consultantId;
+    Long studentId;
 }

@@ -1,3 +1,10 @@
+/*
+ * this configure file is for configuring user of aplication and add security for application
+ * 
+ * careted by : prince patel
+ * 
+ */
+
 package com.example.overses_consultancy_12_2_2024.config;
 
 import org.springframework.context.annotation.Bean;
@@ -18,6 +25,8 @@ public class CustomSessionConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        // for access aprove,decline,cunsoltent routes need to be role CUNSOLRENT
+        // for route student it has to be role student
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(request -> request.requestMatchers("/").authenticated()
                         .requestMatchers("/approve/**", "/decline/**", "/cunsoltent/**").hasAnyRole("CUNSOLTENT")

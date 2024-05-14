@@ -1,3 +1,10 @@
+/*
+ * careted by : prince patel
+ * 
+ * this is sevice for managing user authentication
+ * 
+ */
+
 package com.example.overses_consultancy_12_2_2024.services;
 
 import java.util.List;
@@ -21,6 +28,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    // this is for loading user by user name
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));

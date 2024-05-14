@@ -18,11 +18,11 @@
                 <div class=" card   p-5 ">
                     <div class="mb-3">
                         <label for="oldPassword" class="form-label">Old Password</label>
-                        <input type="password" class="form-control" id="oldPassword" name="oldPassword">
+                        <input type="password" class="form-control" id="oldPassword" name="oldPassword" required>
                     </div>
                     <div class="mb-3">
                         <label for="newPassword" class="form-label">New Password</label>
-                        <input type="password" class="form-control" id="newPassword" name="newPassword">
+                        <input type="password" class="form-control" id="newPassword" name="newPassword" required>
                     </div>
                     <button type="submit" class="btn btn-success">Save</button>
                 </div>

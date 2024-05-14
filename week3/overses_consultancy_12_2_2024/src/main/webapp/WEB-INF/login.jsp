@@ -17,11 +17,11 @@
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">User name</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" name="username"
-                    aria-describedby="emailHelp">
+                    aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+                <input type="password" class="form-control" name="password" id="exampleInputPassword1" required>
             </div>
 
             <button type="submit" class="btn btn-primary">login </button>
